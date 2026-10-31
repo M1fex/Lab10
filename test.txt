@@ -1,0 +1,10 @@
+Hello! This is a sample text file for testing input and output streams in Java.
+The program should read this text, encrypt each character, and save the result to another file.
+After decryption, the original text should be restored exactly.
+
+This line contains numbers: 0 1 2 3 4 5 6 7 8 9.
+This line contains punctuation: . , ! ? : ; ( ) - ' "
+Java makes it possible to process text using readers, writers, and filter streams.
+The quick brown fox jumps over the lazy dog.
+
+End of the test file.

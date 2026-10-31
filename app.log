@@ -1,0 +1,24 @@
+Oct 31, 2026 3:17:43 PM Reader encryptFile
+INFO: Начало шифрования файла: unnamed.txt-> encrypted.txt
+Oct 31, 2026 3:17:43 PM Reader encryptFile
+SEVERE: Ошибка при шифровании файлаunnamed.txt
+java.io.FileNotFoundException: unnamed.txt (The system cannot find the file specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:185)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:139)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:109)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at Reader.encryptFile(Reader.java:42)
+	at Main.main(Main.java:40)
+
+Oct 31, 2026 3:20:24 PM Reader encryptFile
+SEVERE: Ошибка при шифровании файлаunnamed.txt
+java.io.FileNotFoundException: unnamed.txt (The system cannot find the file specified)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:185)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:139)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:109)
+	at java.base/java.io.FileReader.<init>(FileReader.java:60)
+	at Reader.encryptFile(Reader.java:42)
+	at Main.main(Main.java:43)
+
