@@ -10,7 +10,7 @@ import java.util.logging.SimpleFormatter;
 class Main {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         Logger logger = Logger.getLogger(Reader.class.getName());
-        logger.setLevel(Level.SEVERE);
+        logger.setLevel(Level.INFO);
         Scanner scanner = new Scanner(System.in);
 
         String str = scanner.nextLine();
