@@ -1,18 +1,26 @@
 import java.util.Arrays;
 import java.lang.reflect.Field;
+import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        String str = "Hello";
+        Scanner scanner = new Scanner(System.in);
+
+        String str = scanner.nextLine();
+
+        if (str.isEmpty()){
+            str = "Hello";
+        }
 
         Field field = String.class.getDeclaredField("value");
         field.setAccessible(true);
 
-        // char[] value = (char[]) field.get(str);
-
         byte[] value = (byte[]) field.get(str);
-        value[0] = Byte.parseByte("J");
 
-        IO.println("value = " + Arrays.toString(value));
+        IO.println(str);
+
+        value[0] = 'J';
+
+        IO.println(str);
     }
 }
