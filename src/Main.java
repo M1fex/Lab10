@@ -2,6 +2,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.lang.reflect.Field;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -41,24 +43,48 @@ class Main {
             fileHandler.setLevel(Level.WARNING);
             logger.addHandler(fileHandler);
 
+            char key = 'A'; // ключовий символ для зсуву
+
+            Locale locale = Locale.forLanguageTag("uk");
+            ResourceBundle bundle = ResourceBundle.getBundle("location.messages", locale);
+
             while (true) {
-                IO.println("Вибір мови");
-                IO.println("1. Українська");
-                IO.println("2. English");
-                String language = scanner.nextLine();
-                if (language.isEmpty()) {
+                IO.println(bundle.getString("menu.title"));
+                IO.println("1. " + bundle.getString("menu.decrypt"));
+                IO.println("2. " + bundle.getString("menu.encrypt"));
+                IO.println("3. " + bundle.getString("menu.language"));
+                IO.println("0. " + bundle.getString("menu.exit"));
+
+                String choice = scanner.nextLine();
+                if (choice.equals("0")) {
                     break;
                 }
 
-                switch (language) {
+                switch (choice) {
                     case "1":
-                        IO.println("Ви обрали українську мову");
+                        System.out.println(bundle.getString("menu.decrypt"));
+                        read.decryptFile("encrypted.txt", "decrypted.txt", key);
                         break;
                     case "2":
-                        IO.println("You have chosen English language");
+                        System.out.println(bundle.getString("menu.encrypt"));
+                        read.encryptFile("test.txt", "encrypted.txt", key);
+                        break;
+                    case "3":
+                        IO.println("1. Українська");
+                        IO.println("2. English");
+                        String language = scanner.nextLine();
+                        if (language.equals("1")) {
+                            locale = Locale.forLanguageTag("uk");
+                            bundle = ResourceBundle.getBundle("location.messages", locale);
+                        } else if (language.equals("2")) {
+                            locale = Locale.forLanguageTag("en");
+                            bundle = ResourceBundle.getBundle("location.messages", locale);
+                        } else {
+                            IO.println(bundle.getString("menu.wrong"));
+                        }
                         break;
                     default:
-                        IO.println("Невірний вибір");
+                        IO.println(bundle.getString("menu.wrong"));
                         break;
                 }
             }
